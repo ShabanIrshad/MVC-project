@@ -1,7 +1,7 @@
 import express from 'express';
 import path from 'path';
 import ejsLayouts from 'express-ejs-layouts'
-import {home} from './src/controller/homeController.js';
+import {home,getProducts} from './src/controller/homeController.js';
 const app=express();
 
 const port=3100;
@@ -12,6 +12,8 @@ app.use(ejsLayouts);
 // app.set();
 
 app.get('/',home);
+app.get('/product',getProducts);
+
 
 app.use(express.static('src/views'));
 app.set('layout', 'layout');
