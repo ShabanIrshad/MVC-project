@@ -14,7 +14,7 @@ app.use(ejsLayouts);
 app.get('/',home);
 app.get('/product',getProducts);
 app.get('/addProduct',getAddProducts);
-app.post('addProduct/submit',addProduct);
+// app.post('/addProduct/submit',addProduct);
 
 
 app.use(express.static('src/views'));
