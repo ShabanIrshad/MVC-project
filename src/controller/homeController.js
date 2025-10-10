@@ -12,4 +12,12 @@ function getProducts(req,res){
    return res.render('products',{products});
 }
 
-export {home,getProducts};
+function getAddProducts(req,res){
+   return res.render('addProduct');
+}
+
+function addProduct(req,res){
+   console.log(req.body);
+}
+
+export {home,getProducts,getAddProducts,addProduct};
