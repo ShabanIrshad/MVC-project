@@ -1,6 +1,6 @@
 <div class="container">
-    <h1>Add Product Page</h1>
-    <form action="/addProduct/submit" method="post">
+    <h1>Add New Product</h1>
+    <form action="/addProduct/Add" method="post">
         <div class="mb-3">
         <label for="id" class="form-label">Id</label>
         <input type="text" class="form-control" id="id" name='id' value="<%= id %>" disabled>
@@ -18,7 +18,7 @@
         <input type="text" class="form-control" id="price" name="price" placeholder="Price">
         </div>
         <div class="mb-3">
-            <button class="btn btn-dark" type="submit">Submit</button>
+            <button class="btn btn-dark" type="submit">Add New</button>
         </div>
     </form>
 </div>

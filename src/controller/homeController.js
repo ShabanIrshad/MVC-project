@@ -22,5 +22,8 @@ function addProduct(req,res){
    // console.log('in Product adding',req.body);
    return res.render('addNewProduct',{id:products.length+1});
 }
+function addNewProduct(req,res){
+   console.log(req.body);
+}
 
-export {home,getProducts,getAddProducts,addProduct};
+export {home,getProducts,getAddProducts,addProduct,addNewProduct};

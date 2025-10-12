@@ -1,7 +1,7 @@
 import express from 'express';
 import path from 'path';
 import ejsLayouts from 'express-ejs-layouts'
-import {home,getProducts,getAddProducts,addProduct} from './src/controller/homeController.js';
+import {home,getProducts,getAddProducts,addProduct,addNewProduct} from './src/controller/homeController.js';
 const app=express();
 
 const port=3100;
@@ -16,6 +16,7 @@ app.get('/',home);
 app.get('/product',getProducts);
 app.get('/addProduct/:id',getAddProducts); //function on button clicking of update on product page
 app.get('/addNewProduct',addProduct);
+app.post('/addProduct/Add',addNewProduct);
 
 
 app.use(express.static('src/views'));
