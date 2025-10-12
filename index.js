@@ -15,7 +15,7 @@ app.use(express.urlencoded({extended:true}));
 app.get('/',home);
 app.get('/product',getProducts);
 app.get('/addProduct/:id',getAddProducts); //function on button clicking of update on product page
-app.post('/addProduct/submit',addProduct);
+app.get('/addNewProduct',addProduct);
 
 
 app.use(express.static('src/views'));

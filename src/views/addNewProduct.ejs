@@ -1,21 +1,21 @@
 <div class="container">
-    <h1>Update Product Page</h1>
+    <h1>Add Product Page</h1>
     <form action="/addProduct/submit" method="post">
         <div class="mb-3">
         <label for="id" class="form-label">Id</label>
-        <input type="text" class="form-control" id="id" name='id' value="<%= product.id %>" disabled>
+        <input type="text" class="form-control" id="id" name='id' value="<%= id %>" disabled>
         </div>
         <div class="mb-3">
         <label for="name" class="form-label">Name</label>
-        <input type="text" class="form-control" id="name" value="<%= product.name %>" name="name" placeholder="Product Name">
+        <input type="text" class="form-control" id="name" name="name" placeholder="Product Name">
         </div>
         <div class="mb-3">
         <label for="img" class="form-label">Image</label>
-        <input type="text" class="form-control" id="img" value="<%= product.img %>" name="img" placeholder="Image url..">
+        <input type="text" class="form-control" id="img" name="img" placeholder="Image url..">
         </div>
         <div class="mb-3">
         <label for="price" class="form-label">Price</label>
-        <input type="text" class="form-control" id="price"  value="<%= product.price %>" name="price" placeholder="Price">
+        <input type="text" class="form-control" id="price" name="price" placeholder="Price">
         </div>
         <div class="mb-3">
             <button class="btn btn-dark" type="submit">Submit</button>
