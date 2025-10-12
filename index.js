@@ -10,11 +10,12 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(path.resolve(), 'src','views'));
 app.use(ejsLayouts);
 // app.set();
+app.use(express.urlencoded({extended:true}));
 
 app.get('/',home);
 app.get('/product',getProducts);
-app.get('/addProduct',getAddProducts);
-// app.post('/addProduct/submit',addProduct);
+app.get('/addProduct/:id',getAddProducts); //function on button clicking of update on product page
+app.post('/addProduct/submit',addProduct);
 
 
 app.use(express.static('src/views'));

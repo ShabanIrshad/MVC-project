@@ -13,11 +13,13 @@ function getProducts(req,res){
 }
 
 function getAddProducts(req,res){
-   return res.render('addProduct');
+   let vid=req.params.id;
+   let product=products.find(p=>p.id==vid);
+   return res.render('addProduct',{product});
 }
 
 function addProduct(req,res){
-   console.log(req.body);
+   console.log('in Product adding',req.body);
 }
 
 export {home,getProducts,getAddProducts,addProduct};
