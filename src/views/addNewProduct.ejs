@@ -1,5 +1,13 @@
 <div class="container">
     <h1>Add New Product</h1>
+   <div class="container">
+  <% if (error) { %>
+    <% error.forEach(function(err) { %>
+      <p class="alert alert-danger"><%= err %></p>
+    <% }); %>
+  <% } %>
+</div>
+
     <form action="/addProduct/Add" method="post">
         <div class="mb-3">
         <label for="id" class="form-label">Id</label>

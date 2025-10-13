@@ -20,7 +20,7 @@ function getAddProducts(req,res){
 
 function addProduct(req,res){
    // console.log('in Product adding',req.body);
-   return res.render('addNewProduct',{id:products.length+1});
+   return res.render('addNewProduct',{id:products.length+1,error:null});
 }
 function addNewProduct(req,res){
    proModel.addNewProduct(req.body);
