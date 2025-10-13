@@ -1,6 +1,20 @@
 export default class productModel{
+    constructor(id,name,img,price){
+        this.id=id;
+        this.name=name,
+        this.img=img,
+        this.price=price
+    }
+
     getProducts(){
         return products;
+    }
+    addNewProduct(obj){
+        // console.log(obj);
+        let id=products.length+1;
+        let product=new productModel(id,obj.name,obj.img,obj.price);
+        products.push(product);
+
     }
 }
 let products=[

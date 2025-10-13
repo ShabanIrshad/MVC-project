@@ -23,7 +23,8 @@ function addProduct(req,res){
    return res.render('addNewProduct',{id:products.length+1});
 }
 function addNewProduct(req,res){
-   console.log(req.body);
+   proModel.addNewProduct(req.body);
+   return res.render('products',{products});
 }
 
 export {home,getProducts,getAddProducts,addProduct,addNewProduct};
