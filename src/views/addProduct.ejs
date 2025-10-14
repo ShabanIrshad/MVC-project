@@ -1,5 +1,12 @@
 <div class="container">
     <h1>Update Product</h1>
+    <div class="container">
+    <% if (error) { %>
+        
+        <p class="alert alert-danger"><%= error %></p>
+       
+    <% } %>
+    </div>
     <form action="/updateProduct" method="post">
         <div class="mb-3">
         
