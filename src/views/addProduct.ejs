@@ -1,9 +1,9 @@
 <div class="container">
     <h1>Update Product</h1>
-    <form action="/addProduct/submit" method="post">
+    <form action="/updateProduct" method="post">
         <div class="mb-3">
-        <label for="id" class="form-label">Id</label>
-        <input type="text" class="form-control" id="id" name='id' value="<%= product.id %>" disabled>
+        
+        <input type="hidden" class="form-control" id="id" name='id' value="<%= product.id %>">
         </div>
         <div class="mb-3">
         <label for="name" class="form-label">Name</label>

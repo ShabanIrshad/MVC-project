@@ -27,4 +27,8 @@ function addNewProduct(req,res){
    return res.render('products',{products});
 }
 
-export {home,getProducts,getAddProducts,addProduct,addNewProduct};
+function updateProduct(req,res){
+   console.log(req.body);
+}
+
+export {home,getProducts,getAddProducts,addProduct,addNewProduct,updateProduct};

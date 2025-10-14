@@ -9,7 +9,7 @@ function adding(req,res,next){
     if(!name || name.trim()==='' || name.length<4){
         error.push('Name should be more tha 4 letters.')
     }
-    if(parseFloat(price)<0){
+    if(parseFloat(price)<0 || price===''){
         error.push('Price should be a positive value.');
     }
     try {
@@ -22,4 +22,10 @@ function adding(req,res,next){
     }
     next();
 }
-export {adding};
+
+function updating(req,res,next){
+    console.log(req.body);
+    next();
+}
+
+export {adding,updating};
