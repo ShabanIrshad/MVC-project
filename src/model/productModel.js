@@ -16,6 +16,13 @@ export default class productModel{
         products.push(product);
 
     }
+    update(obj){
+        const index=products.findIndex(p=>p.id==obj.id);
+        // console.log(index,'index');
+        if(index){
+            products[index]=obj;
+        }
+    }
 }
 let products=[
     {

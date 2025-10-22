@@ -28,7 +28,8 @@ function addNewProduct(req,res){
 }
 
 function updateProduct(req,res){
-   console.log(req.body);
+   proModel.update(req.body);
+   return res.render('products',{products});
 }
 
 export {home,getProducts,getAddProducts,addProduct,addNewProduct,updateProduct};

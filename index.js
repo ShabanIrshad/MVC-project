@@ -20,7 +20,7 @@ app.get('/product',getProducts);
 app.get('/addProduct/:id',getAddProducts); //function on button clicking of update on product page
 app.get('/addNewProduct',addProduct);
 app.post('/addProduct/Add',adding,addNewProduct);
-app.post('/updateProduct/',updating,updateProduct);//update button route 
+app.post('/updateProduct/:id',updating,updateProduct);//update button route 
 
 
 app.use(express.static('src/views'));

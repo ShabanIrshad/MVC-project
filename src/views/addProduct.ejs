@@ -7,7 +7,7 @@
        
     <% } %>
     </div>
-    <form action="/updateProduct" method="post">
+    <form action="/updateProduct/<%= product.id %>" method="post">
         <div class="mb-3">
         
         <input type="hidden" class="form-control" id="id" name='id' value="<%= product.id %>">
