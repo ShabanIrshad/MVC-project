@@ -20,8 +20,12 @@
                         <td>
                             
                                 <a class="btn btn-dark" href="/addProduct/<%= product.id %>">Update</a>
+                                <!-- <a class="btn btn-danger" href="">Delete</a> -->
+                                <form action="/deleteProduct/<%= product.id %>" method="post">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
                                 
-                                 <button class="btn btn-danger">Delete</button>
+                                 <!-- <button class="btn btn-danger">Delete</button> -->
                             
                             
                         </td>

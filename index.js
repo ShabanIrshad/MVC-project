@@ -1,7 +1,7 @@
 import express from 'express';
 import path from 'path';
 import ejsLayouts from 'express-ejs-layouts'
-import {home,getProducts,getAddProducts,addProduct,addNewProduct,updateProduct} from './src/controller/homeController.js';
+import {home,getProducts,getAddProducts,addProduct,addNewProduct,updateProduct,deleteProduct} from './src/controller/homeController.js';
 import {adding,updating} from './src/middleware/addProductMiddleware.js'; //Using Middleware functions for Validating
 const app=express();
 
@@ -21,6 +21,7 @@ app.get('/addProduct/:id',getAddProducts); //function on button clicking of upda
 app.get('/addNewProduct',addProduct);
 app.post('/addProduct/Add',adding,addNewProduct);
 app.post('/updateProduct/:id',updating,updateProduct);//update button route 
+app.post('/deleteProduct/:id',deleteProduct)
 
 
 app.use(express.static('src/views'));

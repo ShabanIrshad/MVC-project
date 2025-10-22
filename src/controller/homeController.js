@@ -32,4 +32,16 @@ function updateProduct(req,res){
    return res.render('products',{products});
 }
 
-export {home,getProducts,getAddProducts,addProduct,addNewProduct,updateProduct};
+function deleteProduct(req,res){
+   const id=req.params.id;
+   const checked=proModel.checkProduct(id);
+   // console.log(checked);
+   if(checked){
+      proModel.delete(id);
+   }else{
+      return res.status(404).send('Product not eligible.')
+   }
+   return res.render('products',{products});
+}
+
+export {home,getProducts,getAddProducts,addProduct,addNewProduct,updateProduct,deleteProduct};
