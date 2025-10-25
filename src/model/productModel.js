@@ -9,10 +9,13 @@ export default class productModel{
     getProducts(){
         return products;
     }
-    addNewProduct(obj){
+     addNewProduct(obj,fl){
         // console.log(obj);
         let id=products.length+1;
-        let product=new productModel(id,obj.name,obj.img,obj.price);
+        const {name,price}=obj;
+        const img='/images/'+fl.filename;
+        // console.log(img);
+        let product=new productModel(id,name,img,price);
         products.push(product);
 
     }

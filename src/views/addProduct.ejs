@@ -7,7 +7,7 @@
        
     <% } %>
     </div>
-    <form action="/updateProduct/<%= product.id %>" method="post">
+    <form action="/updateProduct/<%= product.id %>" method="post" enctype="multipart/form-data">
         <div class="mb-3">
         
         <input type="hidden" class="form-control" id="id" name='id' value="<%= product.id %>">
@@ -18,7 +18,7 @@
         </div>
         <div class="mb-3">
         <label for="img" class="form-label">Image</label>
-        <input type="text" class="form-control" id="img" value="<%= product.img %>" name="img" placeholder="Image url..">
+        <input type="file" class="form-control" id="img" value="<%= product.img %>" name="img" placeholder="Image url..">
         </div>
         <div class="mb-3">
         <label for="price" class="form-label">Price</label>

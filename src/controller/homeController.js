@@ -1,4 +1,5 @@
 import productModel from '../model/productModel.js';
+import path from 'path';
 
 const proModel=new productModel();
 const products=proModel.getProducts();
@@ -23,7 +24,7 @@ function addProduct(req,res){
    return res.render('addNewProduct',{id:products.length+1,error:null});
 }
 function addNewProduct(req,res){
-   proModel.addNewProduct(req.body);
+   proModel.addNewProduct(req.body,req.file);
    return res.render('products',{products});
 }
 

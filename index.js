@@ -2,7 +2,7 @@ import express from 'express';
 import path from 'path';
 import ejsLayouts from 'express-ejs-layouts'
 import {home,getProducts,getAddProducts,addProduct,addNewProduct,updateProduct,deleteProduct} from './src/controller/homeController.js';
-import {adding,updating} from './src/middleware/addProductMiddleware.js'; //Using Middleware functions for Validating
+import {adding,updating,usingMulter} from './src/middleware/addProductMiddleware.js'; //Using Middleware functions for Validating
 const app=express();
 
 const port=3100;
@@ -19,12 +19,13 @@ app.get('/',home);
 app.get('/product',getProducts);
 app.get('/addProduct/:id',getAddProducts); //function on button clicking of update on product page
 app.get('/addNewProduct',addProduct);
-app.post('/addProduct/Add',adding,addNewProduct);
-app.post('/updateProduct/:id',updating,updateProduct);//update button route 
+app.post('/addProduct/Add',usingMulter.single('img'),adding,addNewProduct);
+app.post('/updateProduct/:id',usingMulter.single('img'),updating,updateProduct);//update button route 
 app.post('/deleteProduct/:id',deleteProduct)
 
 
 app.use(express.static('src/views'));
+app.use(express.static(path.resolve('public')))
 app.set('layout', 'layout');
 
 

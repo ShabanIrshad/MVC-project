@@ -1,5 +1,7 @@
 import productModel from "../model/productModel.js";
 import {body,validationResult} from 'express-validator';
+import path from 'path';
+import multer from 'multer';
 const proModel=new productModel();
 const products=proModel.getProducts();
 
@@ -15,11 +17,11 @@ function adding(req,res,next){
     if(parseFloat(price)<0 || price===''){
         error.push('Price should be a positive value.');
     }
-    try {
-        const validUrl=new URL(img);
-    } catch (err) {
-        error.push(err);
-    }
+    // try {
+    //     const validUrl=new URL(img);
+    // } catch (err) {
+    //     error.push(err);
+    // }
     if(error.length>0){
         return res.render('addNewProduct',{id:products.length+1,error:error});
     }
@@ -35,7 +37,7 @@ async function updating(req,res,next){
         // body('id').isEmpty().withMessage('Product not updated!'),
         body('name').isLength({min:4}).withMessage('Name should be atleast 4 character.'),
         body('price').isFloat({gt:0}).withMessage('Price should be a positive value.'),
-        body('img').isURL().withMessage('Url should be live from web'),
+        // body('img').isURL().withMessage('Url should be live from web'),
     ]
     //Running Rules
     await Promise.all(rules.map((rule)=>rule.run(req)));
@@ -52,5 +54,19 @@ async function updating(req,res,next){
     }
   
 }
+///---------USING MULTER FOR FILE UPLOADING----------//
+const storageConfig=multer.diskStorage({
+    destination:(req,res,cb)=>{
+        cb(null,'public/images');
+    },
+    filename:(req,file,cb)=>{
+        cb(null,Date.now()+"-"+file.originalname);
+    }
+})
+
+export const usingMulter=multer({
+    storage:storageConfig,
+})
+//----------------------------------------------------//
 
 export {adding,updating};
