@@ -37,7 +37,12 @@ async function updating(req,res,next){
         // body('id').isEmpty().withMessage('Product not updated!'),
         body('name').isLength({min:4}).withMessage('Name should be atleast 4 character.'),
         body('price').isFloat({gt:0}).withMessage('Price should be a positive value.'),
-        // body('img').isURL().withMessage('Url should be live from web'),
+        body('img').custom((value,{req})=>{
+            if(!req.file){
+                throw new Error('File is not selected yet.')
+            }
+            return true;
+        }),
     ]
     //Running Rules
     await Promise.all(rules.map((rule)=>rule.run(req)));
