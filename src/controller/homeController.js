@@ -13,6 +13,8 @@ function getProducts(req,res){
    return res.render('products',{products});
 }
 
+
+
 function getAddProducts(req,res){
    let vid=req.params.id;
    let product=products.find(p=>p.id==vid);
